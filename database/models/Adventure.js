@@ -1,19 +1,19 @@
 const db = require("../dbConfig");
 
 module.exports = {
-  save,
+  insert,
   remove
 };
 
-function save(adventure) {
-  const [id] = db("adventures").insert(adventure);
+async function insert(adventure) {
+  const [id] = await db("adventures").insert(adventure);
   return db("adventures")
     .where({ id })
     .first();
 }
 
-function remove(id) {
-  return db("adventures")
+async function remove(id) {
+  return await db("adventures")
     .where({ id })
     .del();
 }

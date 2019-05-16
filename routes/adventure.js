@@ -8,7 +8,7 @@ router.post("/", (req, res) => {
   if (!name) {
     return res.status(400).json({ error: "No name." });
   }
-  Adventure.save(req.body)
+  Adventure.insert(req.body)
     .then(adventure => res.status(201).json(adventure))
     .catch(err => res.status(400).json(err));
 });
