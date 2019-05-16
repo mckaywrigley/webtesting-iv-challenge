@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
+const Adventure = require("../database/models/Adventure");
+
 router.post("/", (req, res) => {
   const { name } = req.body;
   if (!name) {
@@ -12,7 +14,7 @@ router.post("/", (req, res) => {
 });
 
 router.delete("/:id", (req, res) => {
-  Adventure.delete(req.params.id)
+  Adventure.remove(req.params.id)
     .then(adventure => res.status(200).json(adventure))
     .catch(err => res.status(404).json(err));
 });

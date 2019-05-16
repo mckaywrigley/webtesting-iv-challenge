@@ -10,7 +10,8 @@ module.exports = {
     },
     seeds: {
       directory: "./database/seeds"
-    }
+    },
+    useNullAsDefault: true
   },
   testing: {
     client: "sqlite3",
@@ -23,6 +24,7 @@ module.exports = {
     },
     seeds: {
       directory: "./database/seeds"
-    }
+    },
+    useNullAsDefault: true
   }
 };
