@@ -21,14 +21,14 @@ describe("Server tests.", () => {
       expect(res.status).toBe(201);
     });
 
-    it("responds with 400 if adventure is invalid", async () => {
+    it("responds with 404 if adventure is invalid", async () => {
       const adventure = {};
 
       const res = await request(server)
         .post("/adventure")
         .send(adventure);
 
-      expect(res.status).toBe(400);
+      expect(res.status).toBe(404);
     });
   });
 

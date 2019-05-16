@@ -2,6 +2,10 @@ const express = require("express");
 const router = express.Router();
 
 router.post("/", (req, res) => {
+  const { name } = req.body;
+  if (!name) {
+    return res.status(400).json({ error: "No name." });
+  }
   Adventure.save(req.body)
     .then(adventure => res.status(201).json(adventure))
     .catch(err => res.status(400).json(err));
